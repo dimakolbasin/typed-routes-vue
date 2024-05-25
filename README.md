@@ -18,4 +18,4 @@ Then, the `RouteParamsForName` type is defined, which takes a route name and an 
 
 ## getLink Function
 
-The `getLink` function accepts an object containing the route name and required parameters. Thanks to the types, TypeScript ensures that the correct parameters are passed for each route name.
+The `getLink` function accepts an object containing the route name and required parameters. Thanks to the types, TypeScript ensures that the correct parameters are passed for each route name
