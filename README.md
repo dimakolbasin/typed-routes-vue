@@ -2,6 +2,8 @@
 
 This project demonstrates the use of type safety in the Vue Router file. It showcases how you can create a type-safe `getRoute` function that accepts an object with the route name and required parameters.
 
+## Check file - src/router-required-params.ts
+
 ## Vue Router Types
 
 In the `router*.ts` file, a new type `AppRouteRecord` is defined, which extends the standard `RouteRecordRaw` type from Vue Router. This new type adds a required `name` property and the ability to specify child routes of type `AppRouteRecord`.

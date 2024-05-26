@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
 
-const NO_REQUIRED_PARAM_MARK = '(.*)'
+const NO_REQUIRED_PARAM_MARK = '?'
 const CHILDREN_ROUTE = 'children'
 const NAME_ROUTE = 'name'
 
@@ -19,22 +19,22 @@ type GetRoutesNames<T extends readonly AppRouteRecord[]> = GetRouteName<T[number
 const routes = [
   {
     name: 'home',
-    path: '/:city-url(.*)',
+    path: '/:prefix_city?',
     component: () => import('~/components/RouteName.vue'),
   },
   {
     name: 'catalog.list',
-    path: '/catalog/:city-url(.*)',
+    path: '/catalog/',
     component: () => import('~/components/RouteName.vue'),
   },
   {
     name: 'catalog.item',
-    path: '/catalog/:city-url(.*)/:id',
+    path: '/catalog/:id',
     component: () => import('~/components/RouteName.vue'),
     children: [
       {
         name: 'catalog.item.reviews',
-        path: '/catalog/:city-url(.*)/:id/reviews',
+        path: '/catalog/:id/reviews',
         component: () => import('~/components/RouteName.vue'),
       },
     ],
