@@ -50,11 +50,11 @@ const routerTypedNames = createRouter({
   history: createWebHistory('/')
 })
 
-const getLink = (to: TRouteTo) => {
+const getRoute = (to: TRouteTo) => {
   return to
 }
 
-getLink({name: 'catalog.list'})
+getRoute({name: 'catalog.list'})
 
 
 export default routerTypedNames
