@@ -50,11 +50,11 @@ const routerTypedNames = createRouter({
   history: createWebHistory('/')
 })
 
-const getRoute = (to: TRouteTo) => {
+const validateRouteByName = (to: TRouteTo) => {
   return to
 }
 
-getRoute({name: 'catalog.list'})
+validateRouteByName({name: 'catalog.list'})
 
 
 export default routerTypedNames

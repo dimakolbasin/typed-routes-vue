@@ -1,6 +1,6 @@
 # Vue Router Types Demo
 
-This project demonstrates the use of type safety in the Vue Router file. It showcases how you can create a type-safe `getRoute` function that accepts an object with the route name and required parameters.
+This project demonstrates the use of type safety in the Vue Router file. It showcases how you can create a type-safe `validateRouteByNameWithParams` function that accepts an object with the route name and required parameters.
 
 ## Check file - src/router-required-params.ts
 
@@ -18,23 +18,23 @@ The project also provides a way to extract parameters from the route path using 
 
 Then, the `RouteParamsForName` type is defined, which takes a route name and an array of routes `TRoutes` and returns an object with the parameters for the given route name.
 
-## getRoute Function
+## validateRouteByNameWithParams Function
 
-The `getRoute` function accepts an object containing the route name and required parameters. Thanks to the types, TypeScript ensures that the correct parameters are passed for each route name.
+The `validateRouteByNameWithParams` function accepts an object containing the route name and required parameters. Thanks to the types, TypeScript ensures that the correct parameters are passed for each route name.
 
 ## Example usage
 
 ### Compilation success with non-required param
-getRoute({ name: 'catalog.item', params: { id: 'value', 'city-url': 'new-york' } })
+validateRouteByNameWithParams({ name: 'catalog.item', params: { id: 'value', 'city-url': 'new-york' } })
 
 ### Compilation success without non-required param
-getRoute({ name: 'catalog.item', params: { id: 'value' } })
+validateRouteByNameWithParams({ name: 'catalog.item', params: { id: 'value' } })
 
 ### Compilation success without param
-getRoute({ name: 'home' })
+validateRouteByNameWithParams({ name: 'home' })
 
 ### Compilation error: the parameter should be 'id', not 'idx'
-getRoute({ name: 'catalog.item', params: { idx: 'value' } })
+validateRouteByNameWithParams({ name: 'catalog.item', params: { idx: 'value' } })
 
 ### Compilation error: the parameter should be required 'id'
-getRoute({ name: 'catalog.item.reviews' })
+validateRouteByNameWithParams({ name: 'catalog.item.reviews' })

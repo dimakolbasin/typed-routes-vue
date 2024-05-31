@@ -80,7 +80,7 @@ const router = createRouter({
   history: createWebHistory('/'),
 })
 
-export const getRoute = <Name extends TRouteNames>(to: TRouteTo<Name>) => {
+export const validateRouteByNameWithParams = <Name extends TRouteNames>(to: TRouteTo<Name>) => {
   return to
 }
 
