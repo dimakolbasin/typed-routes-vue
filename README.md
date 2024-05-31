@@ -24,17 +24,35 @@ The `validateRouteByNameWithParams` function accepts an object containing the ro
 
 ## Example usage
 
-### Compilation success with non-required param
-validateRouteByNameWithParams({ name: 'catalog.item', params: { id: 'value', 'city-url': 'new-york' } })
+## Compilation SUCCESS 
 
-### Compilation success without non-required param
-validateRouteByNameWithParams({ name: 'catalog.item', params: { id: 'value' } })
+### with required param
+validateRouteByNameWithParams({ name: 'catalog.item', params: { id: '1' } })
 
-### Compilation success without param
+### without non-require param
+validateRouteByNameWithParams({ name: 'catalog.item', params: { id: '1' } })
+
+### with non-require param
+validateRouteByNameWithParams({ name: 'home', 'prefix_city': 'new-york' })
+
+### without param
 validateRouteByNameWithParams({ name: 'home' })
 
-### Compilation error: the parameter should be 'id', not 'idx'
+---
+
+## Compilation ERROR 
+
+### non-exist option
+validateRouteByNameWithParams({ path: '/home' })
+
+### non-exist name
+validateRouteByNameWithParams({ name: 'product' })
+
+### the require parameter should be 'id', not 'idx'
 validateRouteByNameWithParams({ name: 'catalog.item', params: { idx: 'value' } })
 
-### Compilation error: the parameter should be required 'id'
+### the non-require parameter should be 'prefix_city', not 'prefix_ci'
+validateRouteByNameWithParams({ name: 'home', params: { prefix_ci: 'new-york' } })
+
+### the parameter should be required 'id'
 validateRouteByNameWithParams({ name: 'catalog.item.reviews' })
